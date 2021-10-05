@@ -21,7 +21,6 @@ E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\BackE
 E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\staticwebassets.build.json
 E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\staticwebassets.development.json
 E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\scopedcss\bundle\BackEnd.styles.css
-E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.csproj.CopyComplete
 E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.dll
 E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\ref\BackEnd.dll
 E:\Coding\Repositories\Tusbi-Team\Backend\BackEnd\BackEnd\obj\Debug\net6.0\BackEnd.pdb
