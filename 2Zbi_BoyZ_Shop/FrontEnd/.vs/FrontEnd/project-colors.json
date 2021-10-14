@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "624102e3-cddd-4c32-9709-bcc166f883cb": {
+      "ProjectGuid": "624102e3-cddd-4c32-9709-bcc166f883cb",
+      "DisplayName": "BackEnd",
+      "ColorIndex": 0
+    },
+    "a77f0f31-5851-43a0-82e3-cecbd1571e94": {
+      "ProjectGuid": "a77f0f31-5851-43a0-82e3-cecbd1571e94",
+      "DisplayName": "FrontEnd",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
