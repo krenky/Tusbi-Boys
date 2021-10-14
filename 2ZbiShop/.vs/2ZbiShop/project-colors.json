@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "538c30a3-082e-477b-a5a2-463e8fbf2e6d": {
+      "ProjectGuid": "538c30a3-082e-477b-a5a2-463e8fbf2e6d",
+      "DisplayName": "BackEnd",
+      "ColorIndex": 0
+    },
+    "a2cec490-aa9f-4a74-8b65-e79626227210": {
+      "ProjectGuid": "a2cec490-aa9f-4a74-8b65-e79626227210",
+      "DisplayName": "2ZbiShop",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
