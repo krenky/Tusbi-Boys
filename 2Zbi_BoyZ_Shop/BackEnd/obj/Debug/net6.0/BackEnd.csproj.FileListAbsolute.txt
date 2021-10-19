@@ -21,7 +21,6 @@ F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\BackEnd.MvcApplic
 F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\staticwebassets.build.json
 F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\staticwebassets.development.json
 F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\scopedcss\bundle\BackEnd.styles.css
-F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\BackEnd.csproj.CopyComplete
 F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\BackEnd.dll
 F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\ref\BackEnd.dll
 F:\C#\repos\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\obj\Debug\net6.0\BackEnd.pdb
