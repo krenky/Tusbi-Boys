@@ -8,12 +8,12 @@
     <title>2zbiShop</title>
     <style>
 
-        body {
+        body { /*Задник*/
             background: #798cc7;
             background: linear-gradient(to top, #909090,#c6c6c6 )
         }
 
-        .ImageF {
+        .ImageF { /*Фото фильтра*/
             border: 0;
             margin-left: 5px;
             margin-top: 4px;
@@ -23,23 +23,23 @@
             width: 30px;
         }
 
-        .Serach_text {
+        .Serach_text { /*Строка поиска*/
             color: #808080;
-            font-family:Arial;
-            font-size:20px;
+            font-family: Arial;
+            font-size: 20px;
             width: 95%;
             height: 35px;
-            border:0px solid #fff;
-            outline:none;
-            margin-left:10px;
-            margin-right:10px;
+            border: 0px solid #fff;
+            outline: none;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
-        .wide {
+        .wide { /*wide*/
             overflow: hidden;
         }
 
-        .ImageS {
+        .ImageS { /*Фото Лупы и Пупы*/
             border: 0;
             margin-right: 5px;
             margin-top: 5px;
@@ -49,22 +49,100 @@
             width: 30px;
         }
 
-        #SearchFil {
-            height: 40px; /*Высота*/
-            margin-left: 25%; /* Отступ слева */
-            margin-right: 25%; /* Отступ справа */
-            background: #fff; /* Цвет фона */
-            border-radius: 10px; /*Радиус скругления углов*/
+        #SearchFil { /*Контейнер для местоположения поиска*/
+            height: 40px;
+            margin-left: 25%;
+            margin-right: 25%;
+            background: #fff;
+            border-radius: 10px;
         }
-        #Search {
-            height: 40px; /*Высота*/
-            background: #fff; /* Цвет фона */
-            border-radius: 10px; /*Радиус скругления углов*/
-        }
-        
-        
 
-        #Post {
+        #Search { /*Контейнер для самого поиска*/
+            height: 40px; /*Высота*/
+            background: #fff; /* Цвет фона */
+            border-radius: 10px; /*Радиус скругления углов*/
+        }
+
+        .PostTitle { /*Заголовок поста*/
+            height: 5%;
+            width: 100%;
+            background: #fff;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .Date { /*Дата в заголовке*/
+            height: 25px;
+            width: 20%;
+            margin-top: 5px;
+            margin-right: 3%;
+            float: right;
+            background: #fff;
+            text-align: right;
+            font-family: Arial;
+            font-size: 14px;
+        }
+
+        .PostName { /*Название в заголовке*/
+            height: 40px;
+            width: fit-content;
+            margin-top: 10px;
+            margin-left: 3%;
+            background: #fff;
+            text-align: center;
+            font-family: Arial;
+            font-size: 20px;
+        }
+
+        .Name { /*Для центрирования PostName*/
+            text-align: center;
+        }
+
+        .PostPhoto { /*Место для фото*/
+            background: #fff;
+            width: 100%;
+            height: 55%;
+        }
+
+        .imageP { /*Фото*/
+            margin-left: 2.5%;
+            margin-right: 2.5%;
+            border-radius: 10px;
+            width: 95%;
+            height: 100%;
+        }
+
+        .Info { /*Место для информации*/
+            background: #fff;
+            width: 100%;
+            height: 40%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .AboutPost { /*Инфо об объявлении*/
+            background: #fff;
+            margin-top: 1.5%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
+            width: 65%;
+            height: 90%;
+            float: left;
+            font-family: Arial;
+            font-size: 20px;
+        }
+        .AboutAutor { /*Информация об авторе*/
+            background: #fff;
+            margin-top: 1.5%;
+            margin-left: 2.5%;
+            margin-right: 2.5%;
+            float: right;
+            width: 25%;
+            height: 90%;
+            font-family: Arial;
+            font-size: 20px;
+        }
+
+        #Post { /*Контейнер поста*/
             margin-top: 10px;
             height: 90vh; /*Высота контейнера*/
             margin-left: 25%; /* Отступ слева */
@@ -89,6 +167,28 @@
             </form>
         </div>
     </div>
-    <div id="Post"> </div>
+    <div id="Post">
+        <div class="PostTitle">
+            <div class="Date">11.09.2001</div> <!--Дату выводить сюда-->
+            <div class="wide">
+                <div class="PostName"><div class="Name">Продаю Вадима. есть торг Только Пестрецы</div></div> <!-- Название объявления выводить сюда. Тут 40 символов, это ограничение для Серёги-->
+            </div>
+        </div>
+        <div class="PostPhoto">
+            <input class="imageP" type="image"  src="VadimLogon.png"/><!--Фото выводить сюда-->
+        </div>
+        <div class="Info">
+            <div class="AboutPost">
+                <!--Ниже о посте-->
+                Огромный, непослушный, дикий деревенщина. Борец, студент, олигарх, филантроп, мультимиллионер и просто обычный парниша с деревни. Особенности: странная борода, питается никотином (ибо он Никитин), при контакте с Фаилем ведет себя неадекватно! Отдам в хорошие руки.
+            </div>
+            <div class="AboutAutor"><!--Инфо об авторе выводить сюда-->
+                Нэлла Матвеевна Прусс
+                8 (843) 294-83-44
+                Казань
+                <!--<input class="AutorPostPhoto" />-->                 <!--На потом-->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
