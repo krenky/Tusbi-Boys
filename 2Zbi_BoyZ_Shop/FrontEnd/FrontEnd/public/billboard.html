@@ -8,40 +8,37 @@
     <title>2zbiShop</title>
     <style>
 
+
+
         body { /*Задник*/
-            background: #798cc7;
-            background: linear-gradient(to top, #909090,#c6c6c6 )
+            background: #e6e6e6;
         }
 
         .logo {
-            float: left;
-            margin-left: 10%;
-            height: 30px;
-            width: 30px;
-            
+            float: right;
+            width: 15vh;
         }
 
 
         .ImageF { /*Фото фильтра*/
             border: 0;
-            margin-left: 5px;
-            margin-top: 4px;
-            display: block;
+            margin-left: 1vh;
+            margin-top: 0.5vh;
             float: left;
-            height: 30px;
-            width: 30px;
+            height: 3vh;
+            width: 3vh;
         }
 
         .Serach_text { /*Строка поиска*/
-            color: #808080;
+            color: #000;
             font-family: Arial;
-            font-size: 20px;
-            width: 95%;
-            height: 35px;
+            font-size: 2vh;
+            width: 95vh;
+            height: 3.5vh;
             border: 0px solid #fff;
             outline: none;
-            margin-left: 10px;
-            margin-right: 10px;
+            margin-left: 1vh;
+            margin-right: 1vh;
         }
 
         .wide { /*wide*/
@@ -50,32 +47,31 @@
 
         .ImageS { /*Фото Лупы и Пупы*/
             border: 0;
-            margin-right: 5px;
-            margin-top: 5px;
+            margin-right: 1vh;
+            margin-top: 0.5vh;
             display: block;
             float: right;
-            height: 30px;
-            width: 30px;
+            height: 3vh;
+            width: 2vh;
         }
 
-        #HeadderFil { /*Контейнер для местоположения поиска*/
-            height: 40px;
+        .HeadderFil { /*Контейнер для местоположения поиска*/
+            height: 4vh;
             border-radius: 10px;
         }
 
-        #SearchFil {
-            margin-left: 25%;
-            margin-right: 25%;
-            height: 40px;
+        .SearchFil {
+            margin-left: 50vh;
+            margin-right: 50vh;
+            height: 4vh;
             background: #fff;
             border-radius: 10px;
         }
 
-        #Search { /*Контейнер для самого поиска*/
-            height: 40px; /*Высота*/
+        .Search { /*Контейнер для самого поиска*/
+            height: 4vh; /*Высота*/
             background: #fff; /* Цвет фона */
             border-radius: 10px; /*Радиус скругления углов*/
-            
         }
 
         .PostTitle { /*Заголовок поста*/
@@ -134,6 +130,7 @@
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
+
         .AboutPost { /*Инфо об объявлении*/
             background: #fff;
             margin-top: 1.5%;
@@ -145,6 +142,7 @@
             font-family: Arial;
             font-size: 20px;
         }
+
         .AboutAutor { /*Информация об авторе*/
             background: #fff;
             margin-top: 1.5%;
@@ -165,15 +163,17 @@
             background: #fff; /* Цвет фона */
             border-radius: 10px; /*Радиус скругления углов*/
         }
+    
+    
     </style>
 </head>
 
 
 <body>
-    <div id="HeadderFil">
-        <img class="logo" src="LOGO-removebg-preview.png"/>
-        <div id="SearchFil">
-            <div id="Search">
+    <div class="HeadderFil">
+        <img class="logo" src="LOGO.png"/>
+        <div class="SearchFil">
+            <div class="Search">
                 <form action="SearchBar">
                     <input class="ImageF" type="image" src="Filter.png" /> 
                     <input class="ImageS" type="image" src="Lypa.png" />
