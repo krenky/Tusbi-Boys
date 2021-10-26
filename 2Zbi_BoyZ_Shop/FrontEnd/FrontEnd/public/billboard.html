@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/%PUBLIC_URL%/VadimLogon.ico"/>
+    <link rel="icon" href="/%PUBLIC_URL%/VadimLogon.ico" />
     <!--Здесь будет иконка-->
     <title>2zbiShop</title>
     <style>
@@ -32,10 +33,9 @@
         .Serach_text { /*Строка поиска*/
             color: #000;
             font-family: Arial;
-            font-size: 2vh;
-            width: 95vh;
-            height: 3.5vh;
-            border: 0px solid #fff;
+            width: 100%;
+            height: 90%;
+            border: none;
             outline: none;
             margin-left: 1vh;
             margin-right: 1vh;
@@ -43,6 +43,8 @@
 
         .wide { /*wide*/
             overflow: hidden;
+            height: 3.5vh;
+            width: inherit;
         }
 
         .ImageS { /*Фото Лупы и Пупы*/
@@ -58,51 +60,64 @@
         .HeadderFil { /*Контейнер для местоположения поиска*/
             height: 4vh;
             border-radius: 10px;
+            min-width: min-content;
         }
 
         .SearchFil {
-            margin-left: 50vh;
-            margin-right: 50vh;
+            margin-left: 35vh;
+            margin-right: 35vh;
             height: 4vh;
             background: #fff;
             border-radius: 10px;
+            min-width: min-content;
         }
+
 
         .Search { /*Контейнер для самого поиска*/
             height: 4vh; /*Высота*/
             background: #fff; /* Цвет фона */
             border-radius: 10px; /*Радиус скругления углов*/
+            min-width: min-content;
+        }
+
+        .SearchBar {
+            min-width: min-content;
         }
 
         .PostTitle { /*Заголовок поста*/
-            height: 5%;
-            width: 100%;
+            height: auto;
+            width: auto;
             background: #fff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+            min-height: 6vh;
         }
 
         .Date { /*Дата в заголовке*/
-            height: 25px;
-            width: 20%;
-            margin-top: 5px;
-            margin-right: 3%;
+            height: 50%;
+            width: auto;
+            margin-right: 5%;
             float: right;
-            background: #fff;
-            text-align: right;
+            background: transparent;
+            align-content: center;
+            text-align: center;
             font-family: Arial;
-            font-size: 14px;
+            color: #3567db;
+            font-size: 80%;
+            overflow: hidden;
         }
 
         .PostName { /*Название в заголовке*/
-            height: 40px;
-            width: fit-content;
+            height: 100%;
+            min-height: 4vh;
+            width: auto;
             margin-top: 10px;
             margin-left: 3%;
-            background: #fff;
+            background: transparent;
             text-align: center;
             font-family: Arial;
-            font-size: 20px;
+            font-weight: bold;
+            font-size: inherit;
         }
 
         .Name { /*Для центрирования PostName*/
@@ -111,22 +126,25 @@
 
         .PostPhoto { /*Место для фото*/
             background: #fff;
+            height: 45vh;
+            min-height: 40vh;
             width: 100%;
-            height: 55%;
+            overflow: hidden;
         }
 
         .imageP { /*Фото*/
-            margin-left: 2.5%;
+            margin-left: 10%;
             margin-right: 2.5%;
             border-radius: 10px;
-            width: 95%;
+            width: 80%;
             height: 100%;
         }
 
         .Info { /*Место для информации*/
             background: #fff;
             width: 100%;
-            height: 40%;
+            height: 35vh;
+            overflow: hidden;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
         }
@@ -137,10 +155,12 @@
             margin-left: 2.5%;
             margin-right: 2.5%;
             width: 65%;
-            height: 90%;
+            height: auto;
+            min-height: 25vh;
             float: left;
+            color: gray;
             font-family: Arial;
-            font-size: 20px;
+            font-size: inherit;
         }
 
         .AboutAutor { /*Информация об авторе*/
@@ -149,57 +169,59 @@
             margin-left: 2.5%;
             margin-right: 2.5%;
             float: right;
+            color: gray;
             width: 25%;
-            height: 90%;
+            height: auto;
+            min-height: 25vh;
             font-family: Arial;
-            font-size: 20px;
+            font-size: inherit;
         }
 
-        #Post { /*Контейнер поста*/
+        .Post { /*Контейнер поста*/
             margin-top: 10px;
             height: 90vh; /*Высота контейнера*/
-            margin-left: 25%; /* Отступ слева */
-            margin-right: 25%; /* Отступ справа */
+            margin-left: 35vh; /* Отступ слева */
+            margin-right: 35vh; /* Отступ справа */
             background: #fff; /* Цвет фона */
             border-radius: 10px; /*Радиус скругления углов*/
+            min-width: min-content;
         }
-    
-    
     </style>
 </head>
 
 
 <body>
     <div class="HeadderFil">
-        <img class="logo" src="LOGO.png"/>
+        <img class="logo" src="LOGO.png" />
         <div class="SearchFil">
             <div class="Search">
-                <form action="SearchBar">
-                    <input class="ImageF" type="image" src="Filter.png" /> 
+                <form class="SearchBar">
+                    <input class="ImageF" type="image" src="Filter.png" />
                     <input class="ImageS" type="image" src="Lypa.png" />
                     <div class="wide">
-                        <input class="Serach_text" placeholder="Поиск..." type="text" /> 
+                        <input class="Serach_text" placeholder="Поиск..." type="text" />
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div id="Post">
+    <div class="Post">
         <div class="PostTitle">
             <div class="Date">11.09.2001</div> <!--Дату выводить сюда-->
-            <div class="wide">
-                <div class="PostName"><div class="Name">Продаю Вадима. есть торг Только Пестрецы</div></div> <!-- Название объявления выводить сюда. Тут 40 символов, это ограничение для Серёги-->
-            </div>
+
+            <div class="PostName"><div class="Name">Продаю Вадима. есть торг Только Пестрецы</div></div> <!-- Название объявления выводить сюда. Тут 40 символов, это ограничение для Серёги-->
+
         </div>
         <div class="PostPhoto">
-            <input class="imageP" type="image"  src="VadimLogon.png"/><!--Фото выводить сюда-->
+            <input class="imageP" type="image" src="VadimLogon.png" /><!--Фото выводить сюда-->
         </div>
         <div class="Info">
             <div class="AboutPost">
                 <!--Ниже о посте-->
                 Огромный, непослушный, дикий деревенщина. Борец, студент, олигарх, филантроп, мультимиллионер и просто обычный парниша с деревни. Особенности: странная борода, питается никотином (ибо он Никитин), при контакте с Фаилем ведет себя неадекватно! Отдам в хорошие руки.
             </div>
-            <div class="AboutAutor"><!--Инфо об авторе выводить сюда-->
+            <div class="AboutAutor">
+                <!--Инфо об авторе выводить сюда-->
                 Нэлла Матвеевна Прусс
                 8 (843) 294-83-44
                 Казань
