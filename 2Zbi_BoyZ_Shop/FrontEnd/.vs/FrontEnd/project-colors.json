@@ -15,12 +15,7 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Прочие файлы",
       "ColorIndex": -1
-    },
-    "b2391591-33c1-496f-ab22-92fabf4c0261": {
-      "ProjectGuid": "b2391591-33c1-496f-ab22-92fabf4c0261",
-      "DisplayName": "BackEndShop",
-      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 2
 }
