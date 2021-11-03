@@ -29,8 +29,9 @@ namespace BackEnd
         public void ConfigureServices(IServiceCollection services)
         {
 
-            string connection = Configuration.GetConnectionString("DefaultConnection");
-            //string connection = Configuration.GetConnectionString("PostgresConnection");
+            //string connection = Configuration.GetConnectionString("DefaultConnection");   //не работают строки подключения из Appsettings.json
+            //string connection = Configuration.GetConnectionString("PostgresConnection");  //не работают строки подключения из Appsettings.json
+            string connection = "Server=(localdb)\\mssqllocaldb;Database=Shopdb;Trusted_Connection=True;";
             services.AddControllers();
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
             //services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));

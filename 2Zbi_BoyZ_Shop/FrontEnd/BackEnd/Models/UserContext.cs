@@ -5,14 +5,14 @@ namespace BackEnd.Models
 {
     public class UserContext: DbContext
     {
-        public UserContext()
-        //public UserContext(DbContextOptions<UserContext> options) : base(options)
+        //public UserContext()
+        public UserContext(DbContextOptions<UserContext> options) : base(options)
         {
-            //if (options == null)
-            //{
-            //    //Database.EnsureCreated();
-            //    throw new ArgumentNullException(nameof(options));
-            //}
+            if (options == null)
+            {
+                //Database.EnsureCreated();
+                throw new ArgumentNullException(nameof(options));
+            }
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
