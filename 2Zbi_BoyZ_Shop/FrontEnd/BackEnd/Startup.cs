@@ -31,10 +31,11 @@ namespace BackEnd
 
             //string connection = Configuration.GetConnectionString("DefaultConnection");   //не работают строки подключения из Appsettings.json
             //string connection = Configuration.GetConnectionString("PostgresConnection");  //не работают строки подключения из Appsettings.json
-            string connection = "Server=(localdb)\\mssqllocaldb;Database=Shopdb;Trusted_Connection=True;";
+            //string connection = "Server=(localdb)\\mssqllocaldb;Database=Shopdb;Trusted_Connection=True;";
+            string connection = "Host=localhost;Port=5432;Database=Shopdb;Username=postgres;Password=363kYkmJ";
             services.AddControllers();
-            services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
-            //services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));
+            //services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<UserContext>(options => options.UseNpgsql(connection));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEnd", Version = "v1" });
