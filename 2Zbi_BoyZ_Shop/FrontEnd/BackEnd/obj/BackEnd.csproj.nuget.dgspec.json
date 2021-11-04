@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Coding\\Repositories\\Shop\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj": {}
+    "F:\\C#\\repos\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj": {}
   },
   "projects": {
-    "E:\\Coding\\Repositories\\Shop\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj": {
+    "F:\\C#\\repos\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Coding\\Repositories\\Shop\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "F:\\C#\\repos\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "E:\\Coding\\Repositories\\Shop\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj",
-        "packagesPath": "C:\\Users\\Strange\\.nuget\\packages\\",
-        "outputPath": "E:\\Coding\\Repositories\\Shop\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\obj\\",
+        "projectPath": "F:\\C#\\repos\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj",
+        "packagesPath": "C:\\Users\\Артур\\.nuget\\packages\\",
+        "outputPath": "F:\\C#\\repos\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Strange\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Артур\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

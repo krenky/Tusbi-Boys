@@ -12,122 +12,83 @@
 
 
         body { /*Задник*/
-            background: #e6e6e6;
+            background: linear-gradient(45deg, #d9afff, #8ad8ea);
         }
 
         .logo {
             float: right;
-            width: 15vh;
+            width: 80%;
+            height:3%;
         }
 
 
         .ImageF { /*Фото фильтра*/
             border: 0;
-            margin-left: 1vh;
-            margin-top: 0.5vh;
+            margin-left: 0.5%;
+            margin-top: 0.2%;
             float: left;
-            height: 3vh;
-            width: 3vh;
+            height: 2.5%;
+            width: 2.5%;
         }
 
         .Serach_text { /*Строка поиска*/
-            color: #000;
             font-family: Arial;
-            width: 100%;
-            height: 90%;
+            width: 92%;
+            height: 100%;
+            font-size:150%;
             border: none;
             outline: none;
-            margin-left: 1vh;
-            margin-right: 1vh;
+            margin-left: 1%;
+            margin-top:0.2%;
         }
 
-        .wide { /*wide*/
-            overflow: hidden;
-            height: 3.5vh;
-            width: inherit;
-        }
 
         .ImageS { /*Фото Лупы и Пупы*/
             border: 0;
-            margin-right: 1vh;
-            margin-top: 0.5vh;
+            margin-right: 0.5%;
+            margin-top: 0.2%;
             display: block;
             float: right;
-            height: 3vh;
-            width: 2vh;
+            height: 2.5%;
+            width: 2.5%;
         }
 
         .HeadderFil { /*Контейнер для местоположения поиска*/
-            height: 4vh;
+            height: 10%;
+            width: 70%;
+            float: left;
+            margin-left: 15%;
             border-radius: 10px;
             min-width: min-content;
-        }
-
-        .SearchFil {
-            margin-left: 35vh;
-            margin-right: 35vh;
-            height: 4vh;
+            border: 2px solid #9c31fe;
             background: #fff;
-            border-radius: 10px;
-            min-width: min-content;
-        }
-
-
-        .Search { /*Контейнер для самого поиска*/
-            height: 4vh; /*Высота*/
-            background: #fff; /* Цвет фона */
-            border-radius: 10px; /*Радиус скругления углов*/
-            min-width: min-content;
-        }
-
-        .SearchBar {
-            min-width: min-content;
         }
 
         .PostTitle { /*Заголовок поста*/
-            height: auto;
-            width: auto;
+            height: 15%;
+            width: 100%;
             background: #fff;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            min-height: 6vh;
         }
 
         .Date { /*Дата в заголовке*/
-            height: 50%;
-            width: auto;
+            height: 100%;
+            width: 10%;
             margin-right: 5%;
             float: right;
-            background: transparent;
-            align-content: center;
-            text-align: center;
-            font-family: Arial;
-            color: #3567db;
-            font-size: 80%;
-            overflow: hidden;
         }
 
         .PostName { /*Название в заголовке*/
             height: 100%;
-            min-height: 4vh;
-            width: auto;
-            margin-top: 10px;
-            margin-left: 3%;
-            background: transparent;
-            text-align: center;
-            font-family: Arial;
-            font-weight: bold;
-            font-size: inherit;
-        }
-
-        .Name { /*Для центрирования PostName*/
-            text-align: center;
+            width: 80%;
+            margin-top: 0.5%;
+            margin-left: 5%;
         }
 
         .PostPhoto { /*Место для фото*/
             background: #fff;
-            height: 45vh;
-            min-height: 40vh;
+            height: 45%;
             width: 100%;
             overflow: hidden;
         }
@@ -143,7 +104,7 @@
         .Info { /*Место для информации*/
             background: #fff;
             width: 100%;
-            height: 35vh;
+            height: 40%;
             overflow: hidden;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
@@ -152,13 +113,12 @@
         .AboutPost { /*Инфо об объявлении*/
             background: #fff;
             margin-top: 1.5%;
-            margin-left: 2.5%;
+            margin-left: 10%;
             margin-right: 2.5%;
-            width: 65%;
+            width: 50%;
             height: auto;
             min-height: 25vh;
             float: left;
-            color: gray;
             font-family: Arial;
             font-size: inherit;
         }
@@ -167,9 +127,8 @@
             background: #fff;
             margin-top: 1.5%;
             margin-left: 2.5%;
-            margin-right: 2.5%;
+            margin-right: 10%;
             float: right;
-            color: gray;
             width: 25%;
             height: auto;
             min-height: 25vh;
@@ -178,13 +137,45 @@
         }
 
         .Post { /*Контейнер поста*/
-            margin-top: 10px;
-            height: 90vh; /*Высота контейнера*/
-            margin-left: 35vh; /* Отступ слева */
-            margin-right: 35vh; /* Отступ справа */
+            margin-top: 1%;
+            height: 85%; /*Высота контейнера*/
+            width:70%;
+            margin-left: 15%; /* Отступ слева */
+            float:left;
             background: #fff; /* Цвет фона */
             border-radius: 10px; /*Радиус скругления углов*/
             min-width: min-content;
+            border: 2px solid #9c31fe;
+        }
+        .Menu{
+            float:right;
+            height:100%;
+            width:14%;
+        }
+        .MenuCell{
+            width:30%;
+            height:10%;
+            margin-top:2%;
+        }
+        .Account{
+            float:right;
+            height:10%;
+            width:20%;
+        }
+        .Favorite {
+            float: right;
+            height: 10%;
+            width: 20%;
+        }
+        .Basket {
+            float: right;
+            height: 10%;
+            width: 20%;
+        }
+        .New_Post {
+            float: right;
+            height: 10%;
+            width: 20%;
         }
     </style>
 </head>
@@ -192,34 +183,19 @@
 
 <body>
     <div class="HeadderFil">
-        <img class="logo" src="LOGO.png" />
-        <div class="SearchFil">
-            <div class="Search">
-                <form class="SearchBar">
-                    <input class="ImageF" type="image" src="Filter.png" />
-                    <input class="ImageS" type="image" src="Lypa.png" />
-                    <div class="wide">
-                        <input class="Serach_text" placeholder="Поиск..." type="text" />
-                    </div>
-                </form>
-            </div>
-        </div>
+        <input class="ImageF" type="image" src="setting.png" />
+        <input class="ImageS" type="image" src="search.png" />
+        <input class="Serach_text" placeholder="Поиск..." type="text" />
     </div>
     <div class="Post">
         <div class="PostTitle">
             <div class="Date">11.09.2001</div> <!--Дату выводить сюда-->
-
             <div class="PostName"><div class="Name">Продаю Вадима. есть торг Только Пестрецы</div></div> <!-- Название объявления выводить сюда. Тут 40 символов, это ограничение для Серёги-->
-
         </div>
         <div class="PostPhoto">
-            <input class="imageP" type="image" src="VadimLogon.png" /><!--Фото выводить сюда-->
+            <input class="imageP" type="image" src="Zaglushka.png" /><!--Фото выводить сюда-->
         </div>
         <div class="Info">
-            <div class="AboutPost">
-                <!--Ниже о посте-->
-                Огромный, непослушный, дикий деревенщина. Борец, студент, олигарх, филантроп, мультимиллионер и просто обычный парниша с деревни. Особенности: странная борода, питается никотином (ибо он Никитин), при контакте с Фаилем ведет себя неадекватно! Отдам в хорошие руки.
-            </div>
             <div class="AboutAutor">
                 <!--Инфо об авторе выводить сюда-->
                 Нэлла Матвеевна Прусс
@@ -227,6 +203,27 @@
                 Казань
                 <!--<input class="AutorPostPhoto" />-->                 <!--На потом-->
             </div>
+            <div class="AboutPost">
+                <!--Ниже о посте-->
+                Огромный, непослушный, дикий деревенщина. Борец, студент, олигарх, филантроп, мультимиллионер и просто обычный парниша с деревни. Особенности: странная борода, питается никотином (ибо он Никитин), при контакте с Фаилем ведет себя неадекватно! Отдам в хорошие руки.
+            </div>
+        </div>
+    </div>
+    <div class="Menu">
+        <div class="MenuCell">
+       <!--     <img class="logo" src="LOGO.png" />-->
+        </div>
+        <div class="MenuCell">
+           <!-- <input class="Account" type="image" src="profile.png" />-->
+        </div>
+        <div class="MenuCell">
+           <!-- <input class="Favorite" type="image" src="favorite.png" />-->
+        </div>
+        <div class="MenuCell">
+            <!--<input class="Basket" type="image" src="basket.png" />-->
+        </div>
+        <div class="MenuCell">
+            <!--<input class="New_Post" type="image" src="Zaglushka.png" />-->
         </div>
     </div>
 </body>
