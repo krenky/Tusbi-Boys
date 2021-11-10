@@ -5,15 +5,20 @@ namespace BackEnd.Models
 {
     public class UserContext: DbContext
     {
-        //public UserContext()
-        public UserContext(DbContextOptions<UserContext> options) : base(options)
+        public UserContext()
         {
-            if (options == null)
-            {
-                //Database.EnsureCreated();
-                throw new ArgumentNullException(nameof(options));
-            }
+            //Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
+        //public UserContext(DbContextOptions<UserContext> options) : base(options)
+        //{
+        //    if (options == null)
+        //    {
+        //        Database.EnsureDeleted();
+        //        Database.EnsureCreated();
+        //        throw new ArgumentNullException(nameof(options));
+        //    }
+        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Shopdb;Trusted_Connection=True;");
@@ -22,6 +27,5 @@ namespace BackEnd.Models
         public DbSet<User> Users {  get; set; }
         public DbSet<Order> Order {  get; set; }
         public DbSet<Product> Product {  get; set;}
-        //public DbSet<UserRole> Roles {  get; set; }
     }
 }

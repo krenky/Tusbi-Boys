@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DMsYV649pVbjo28s4/FO6K4dPqpyyKny0rLqnvvH2rt5mIujLDbA7osL29v8T3png8K6wMBhptlP0GiJSoNPlg==",
+  "dgSpecHash": "hd6XYVUXktGLto/FK3c1wuXbmYpiOnCDkwqenOk11fJmds2zDdzUVbyZoA46fr+/6I7n674g+YtNOvG8ekwlQQ==",
   "success": true,
   "projectFilePath": "E:\\Coding\\Repositories\\Shop\\Tusbi-Boys\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
@@ -135,8 +135,7 @@
     "C:\\Users\\Strange\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Strange\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Strange\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\Strange\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\Strange\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
+    "C:\\Users\\Strange\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

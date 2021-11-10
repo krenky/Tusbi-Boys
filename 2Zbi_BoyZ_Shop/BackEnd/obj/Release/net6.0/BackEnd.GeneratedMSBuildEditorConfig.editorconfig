@@ -10,6 +10,7 @@ build_property.RootNamespace = BackEnd
 build_property.RootNamespace = BackEnd
 build_property.ProjectDir = E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd\
 build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\BackEnd
 build_property._RazorSourceGeneratorDebug = 

@@ -6,6 +6,6 @@ namespace BackEnd.Models
     public class photo
     {
         public int Id {  get; set; }
-        public byte[] Image {  get; set; }
+        public string addr {  get; set; }
     }
 }

@@ -5,6 +5,11 @@ using System.Text;
 
 namespace BackEnd.Models
 {
+    public enum UserRole
+    {
+        Admin,
+        User
+    }
     public class User
     {
         List<Product> products = new List<Product>();
@@ -43,12 +48,14 @@ namespace BackEnd.Models
             }
             set
             {
-                password = ComputeHash(value, new MD5CryptoServiceProvider());
+                password = value;
+                //password = ComputeHash(value, new MD5CryptoServiceProvider());//шифрование паролей
             }
         }
         public string PhoneNumber { get; set; }
         public List<Product> Products { get => products; set => products = value; }
         public List<Order> Order { get => order; set => order = value; }//??
+        public UserRole UserRole { get; set; }
         public photo Photo { get; set; }
         public string ComputeHash(string input, HashAlgorithm algorithm)
         {

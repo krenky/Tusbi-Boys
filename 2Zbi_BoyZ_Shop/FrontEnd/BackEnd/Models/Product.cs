@@ -17,9 +17,8 @@ namespace BackEnd.Models
         /// <param name="description"></param>
         /// <param name="title"></param>
         /// <param name="price"></param>
-        public Product(int? orderId, string name, string description, string title, decimal price)
+        public Product(string name, string description, string title, decimal price)
         {
-            OrderId = orderId;
             Name = name;
             Description = description;
             Title = title;
@@ -27,8 +26,8 @@ namespace BackEnd.Models
         }
 
         public int Id {  get; set; }
-        public int UserId {  get; set; }
-        public int? OrderId {  get; set; }//??
+        //public int UserId {  get; set; }
+        //public int OrderId {  get; set; }//??
         public string Name {  get; set; }
         public string Description {  get; set; }
         public string Title {  get; set; }
