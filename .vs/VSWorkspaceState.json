@@ -4,7 +4,8 @@
     "\\2Zbi_BoyZ_Shop",
     "\\2Zbi_BoyZ_Shop\\BackEnd",
     "\\2Zbi_BoyZ_Shop\\FrontEnd",
-    "\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd"
+    "\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd",
+    "\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\Controllers"
   ],
   "SelectedNode": "\\2Zbi_BoyZ_Shop\\FrontEnd\\BackEnd\\Startup.cs",
   "PreviewInSolutionExplorer": false

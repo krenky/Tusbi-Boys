@@ -1,4 +1,6 @@
 using BackEnd.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
@@ -28,18 +31,42 @@ namespace BackEnd
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.RequireHttpsMetadata = false;
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            // укзывает, будет ли валидироваться издатель при валидации токена
+                            ValidateIssuer = true,
+                            // строка, представляющая издателя
+                            ValidIssuer = AuthOptions.ISSUER,
 
-            //string connection = Configuration.GetConnectionString("DefaultConnection");   //не работают строки подключения из Appsettings.json
-            //string connection = Configuration.GetConnectionString("PostgresConnection");  //не работают строки подключения из Appsettings.json
-            //string connection = "Server=(localdb)\\mssqllocaldb;Database=Shopdb;Trusted_Connection=True;";
-            //string connection =// "Host=localhost;Port=5432;Database=Shopdb;Username=postgres;Password=363kYkmJ";
+                            // будет ли валидироваться потребитель токена
+                            ValidateAudience = true,
+                            // установка потребителя токена
+                            ValidAudience = AuthOptions.AUDIENCE,
+                            // будет ли валидироваться время существования
+                            ValidateLifetime = true,
+
+                            // установка ключа безопасности
+                            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                            // валидация ключа безопасности
+                            ValidateIssuerSigningKey = true,
+                        };
+                    });
             services.AddControllers();
-            //services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
-            services.AddDbContext<UserContext>(/*options => options.UseNpgsql(connection)*/);
+            services.AddDbContext<UserContext>(/*Configuration.GetConnectionString("DefaultConnection")*/);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BackEnd", Version = "v1" });
             });
+            //    // установка конфигурации подключения
+            //    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //            .AddCookie(options => //CookieAuthenticationOptions
+            //{
+            //                options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+            //            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +83,9 @@ namespace BackEnd
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();    // аутентификация
+
+            app.UseAuthorization();     // авторизация
 
             app.UseEndpoints(endpoints =>
             {

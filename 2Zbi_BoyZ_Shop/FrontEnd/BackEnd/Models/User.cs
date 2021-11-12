@@ -36,6 +36,17 @@ namespace BackEnd.Models
             Password = password;
             PhoneNumber = phoneNumber;
         }
+        public User(string email, string password, string phoneNumber)
+        {
+            Email = email;
+            Password = password;
+            PhoneNumber = phoneNumber;
+        }
+        public User(string email, string password)
+        {
+            Email = email;
+            Password = password;
+        }
 
         public int Id { get; set; }
         public string Name { get; set; }

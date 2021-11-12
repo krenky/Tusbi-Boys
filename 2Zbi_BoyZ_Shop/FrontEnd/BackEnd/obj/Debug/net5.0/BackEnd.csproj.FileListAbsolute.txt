@@ -134,3 +134,5 @@ E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\FrontEnd\BackEnd\obj\Debug
 E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\FrontEnd\BackEnd\obj\Debug\net5.0\BackEnd.pdb
 E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\FrontEnd\BackEnd\obj\Debug\net5.0\BackEnd.genruntimeconfig.cache
 E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\FrontEnd\BackEnd\obj\Debug\net5.0\BackEnd.csproj.CopyComplete
+E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\FrontEnd\BackEnd\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Coding\Repositories\Shop\Tusbi-Boys\2Zbi_BoyZ_Shop\FrontEnd\BackEnd\bin\Debug\net5.0\System.Text.Json.dll
