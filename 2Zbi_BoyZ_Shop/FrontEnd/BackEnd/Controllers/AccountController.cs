@@ -8,6 +8,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+
 
 namespace BackEnd.Controllers
 {
@@ -53,7 +57,7 @@ namespace BackEnd.Controllers
                 var claims = new List<Claim>    
                 {
                     new Claim(ClaimsIdentity.DefaultNameClaimType, users.Email),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, users.UserRole.ToString())
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType, users.UserRoleId.ToString())
                 };
                 ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
@@ -91,6 +95,82 @@ namespace BackEnd.Controllers
         //    // если пользователя не найдено
         //    return null;
         //}
+
+        [HttpGet("/Register")]
+        public IActionResult Register()
+        {
+            //return View();
+            return RedirectToAction("Index", "Home");//заглушка
+        }
+        [HttpPost("/Register")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult<RegisterModel>> Register(RegisterModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (user == null)
+                {
+                    // добавляем пользователя в бд
+                    user = new User(model.Email, model.Password); //{ Email = model.Email, Password = model.Password };
+                    UserRole userRole = await _context.UserRoles.FirstOrDefaultAsync(r => r.Name == "user");
+                    if (userRole != null)
+                        user.UserRole = userRole;
+
+                    _context.Users.Add(user);
+                    await _context.SaveChangesAsync();
+
+                    await Authenticate(user); // аутентификация
+
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            }
+            return model;
+        }
+
+        [HttpGet("/Login")]
+        public IActionResult Login()
+        {
+            //return View();
+            return RedirectToAction("Index", "Home");//заглушка
+        }
+        [HttpPost("/Login")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult<LoginModel>> Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = await _context.Users
+                    .Include(u => u.UserRole)
+                    .FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
+                if (user != null)
+                {
+                    await Authenticate(user); // аутентификация
+
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            }
+            return model;
+        }
+        private async Task Authenticate(User user)
+        {
+            // создаем один claim
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.UserRole?.Name)
+            };
+            // создаем объект ClaimsIdentity
+            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType,
+                ClaimsIdentity.DefaultRoleClaimType);
+            // установка аутентификационных куки
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+
         public class TokenClass
         {
             private string access_token;

@@ -1,9 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BackEnd.Models
 {
     public class RegisterModel
     {
+        public RegisterModel(string email, string password, string confirmPassword)
+        {
+            Email = email ?? throw new ArgumentNullException(nameof(email));
+            Password = password ?? throw new ArgumentNullException(nameof(password));
+            ConfirmPassword = confirmPassword ?? throw new ArgumentNullException(nameof(confirmPassword));
+        }
+
         [Required(ErrorMessage = "Не указан Email")]
         public string Email { get; set; }
 
