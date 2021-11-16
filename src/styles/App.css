@@ -1,0 +1,190 @@
+*{
+    margin:0;
+    border:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: linear-gradient(45deg, #d9afff, #8ad8ea);
+}
+
+.Workspace {
+    background-color: forestgreen;
+    min-height: 100vh;
+    min-width: 70vw;
+    float: left;
+}
+
+.Menu {
+    min-height: 95vh;
+    margin-top:1vh;
+    margin-bottom:4vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    min-width: 17vw;
+    float: right;
+    background: rgba(235 ,235 ,255 ,0.6);
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+}
+
+.MenuCell{
+    width: 17vw;
+    height: 12.5vh;
+}
+
+.LogoCell{
+    width: 17vw;
+    height: 15vh;
+}
+
+.Logo{
+    width: 70%;
+    height: 100%;
+    margin-left: 15%;
+}
+
+.HomeLogo{
+    margin-top: 32%;
+    margin-left: 25%;
+    width: 60%;
+    height: 50%;
+}
+
+.AccountLogo{
+    margin-top: 32%;
+    margin-left: 25%;
+    width: 60%;
+    height: 50%;
+}
+
+.FavoriteLogo{
+    margin-top: 20%;
+    margin-left: 15%;
+    width: 85%;
+    height: 75%;
+}
+
+.BasketLogo{
+    margin-top: 20%;
+    margin-left: 20%;
+    width: 70%;
+    height: 60%;
+}
+
+.NewPostLogo{
+    margin-top: 25%;
+    margin-left: 25%;
+    width: 70%;
+    height: 60%;
+}
+
+.Circle{
+    float: left;
+    border-radius: 100% 0 0 100% / 75% 0 0 75%;
+    background: white;
+    width: 3vw;
+    height: 8vh;
+    margin-left: 4vw;
+}
+.Rect{
+    float: right;
+    background: white;
+    width: 10vw;
+    height: 8vh;
+}
+
+.MenuLink{
+    float: left;
+    font-size: 1vmax;
+    margin-top: 2.7vh;
+}
+
+.Menu__links{
+    width: 17vw;
+    height: 62.5vh;
+}
+
+.Background{
+    float: left;
+    width: 79vw;
+    height: 100vh;
+    
+}
+
+.Account{
+    width: 79vw;
+    height: 25vh;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
+
+.MyPosts{
+    width: 79vw;
+    height:69vh;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    margin-left: 1vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
+
+.Search{
+    width: 54vw;
+    height: 5vh;
+    margin-top: 1vh;
+    margin-left: 16vw;
+    margin-right: 1vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
+
+.Posts{
+    width: 54vw;
+    height:89vh;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    margin-left: 16vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
+
+.FavoritePosts{
+    width: 79vw;
+    height:95vh;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    margin-left: 1vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
+
+.BasketPosts{
+    width: 54vw;
+    height:95vh;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    margin-left: 16vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
+
+.AddPost{
+    width: 54vw;
+    height:95vh;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+    margin-left: 16vw;
+    border-radius: 20px;
+    border: 2px solid #9c31fe;
+    background-color: white;
+}
