@@ -34,17 +34,17 @@ namespace Back.Models
             string adminPassword = "123456";
 
             // добавляем роли
-            UserRole adminRole = new UserRole { Id = 1, Name = adminRoleName };
-            UserRole userRole = new UserRole { Id = 2, Name = userRoleName };
+            Role adminRole = new Role { Id = 1, Name = adminRoleName };
+            Role userRole = new Role { Id = 2, Name = userRoleName };
             User adminUser = new User { Id = 1, Email = adminEmail, Password = adminPassword, UserRoleId = adminRole.Id };
 
-            modelBuilder.Entity<UserRole>().HasData(new UserRole[] { adminRole, userRole });
+            modelBuilder.Entity<Role>().HasData(new Role[] { adminRole, userRole });
             modelBuilder.Entity<User>().HasData(new User[] { adminUser });
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<User> Users {  get; set; }
         public DbSet<Order> Order {  get; set; }
         public DbSet<Product> Product {  get; set;}
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Role> UserRoles { get; set; }
     }
 }

@@ -63,7 +63,7 @@ namespace Back.Models
         public List<Product> Products { get => products; set => products = value; }
         public List<Order> Order { get => order; set => order = value; }//??
         public int UserRoleId { get; set; }
-        public UserRole UserRole { get; set; }
+        public Role UserRole { get; set; }
         public photo Photo { get; set; }
         public string ComputeHash(string input, HashAlgorithm algorithm)
         {

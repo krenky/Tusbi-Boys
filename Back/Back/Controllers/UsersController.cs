@@ -29,7 +29,7 @@ namespace Back.Controllers
         }
 
         // GET: api/Users/5
-        [Authorize]
+        [Authorize(Roles = "admin, user")]
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {

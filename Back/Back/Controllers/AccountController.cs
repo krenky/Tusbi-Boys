@@ -110,7 +110,7 @@ namespace Back.Controllers
                 {
                     // добавляем пользователя в бд
                     user = new User(model.Email, model.Password); //{ Email = model.Email, Password = model.Password };
-                    UserRole userRole = await _context.UserRoles.FirstOrDefaultAsync(r => r.Name == "user");
+                    Role userRole = await _context.UserRoles.FirstOrDefaultAsync(r => r.Name == "user");
                     if (userRole != null)
                         user.UserRole = userRole;
 
@@ -145,7 +145,7 @@ namespace Back.Controllers
                 {
                     await Authenticate(user); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                    return model;
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
