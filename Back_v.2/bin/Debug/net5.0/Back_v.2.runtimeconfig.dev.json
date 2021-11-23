@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\chepu\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\chepu\\.nuget\\packages",
+      "D:\\Программы\\Visual Studio\\Shared\\NuGetPackages"
+    ]
+  }
+}
