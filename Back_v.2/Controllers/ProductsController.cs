@@ -83,6 +83,17 @@ namespace Back_v._2.Controllers
 
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
+        // POST: api/Products
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Product>> PostProduct(string name, string description, string title, decimal price, List<string> photos, string userId)
+        {
+            Product product = new Product{ Name = name, Description = description, Title = title, Price = price, Photos = photos, UserId = userId};
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+        }
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
