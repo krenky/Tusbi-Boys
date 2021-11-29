@@ -73,16 +73,16 @@ namespace Back_v._2.Controllers
             return NoContent();
         }
 
-        // POST: api/Products
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
-        {
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
+        //// POST: api/Products
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<Product>> PostProduct(Product product)
+        //{
+        //    _context.Products.Add(product);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
-        }
+        //    return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+        //}
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
