@@ -73,11 +73,25 @@ namespace Back_v._2.Controllers
             return NoContent();
         }
 
+        //// POST: api/Orders
+        //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<Order>> PostOrder(Order order)
+        //{
+        //    _context.Orders.Add(order);
+        //    await _context.SaveChangesAsync();
+
+        //    return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+        //}
+
         // POST: api/Orders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<Order>> PostOrder(int idProduct, string userId)
         {
+            List<Product> products = new List<Product>();
+            products.Add(await _context.Products.FindAsync(idProduct));
+            Order order = new Order { Products = products, UserId = userId, Created = DateTime.Now, LastUpdated = DateTime.Now };
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
@@ -103,6 +117,19 @@ namespace Back_v._2.Controllers
         private bool OrderExists(int id)
         {
             return _context.Orders.Any(e => e.Id == id);
+        }
+        [HttpPut]
+        public async Task<ActionResult> AddProduct(int id, int idProduct)
+        {
+            var order = await _context.Orders.FindAsync(id);
+            var product = await _context.Products.FindAsync(idProduct);
+            if(order == null | product == null)
+            {
+                return NotFound();
+            }
+            order.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return NoContent();
         }
     }
 }

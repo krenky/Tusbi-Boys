@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Back_v._2.Context;
 using Back_v._2.Models;
+using System.Security.Claims;
 
 namespace Back_v._2.Controllers
 {
@@ -117,6 +118,12 @@ namespace Back_v._2.Controllers
         private bool AspNetUserExists(string id)
         {
             return _context.AspNetUsers.Any(e => e.Id == id);
+        }
+        [Route("/getUser")]
+        [HttpGet]
+        public async Task<IEnumerable<Claim>> UserName()
+        {
+            return HttpContext.User.Claims;
         }
     }
 }

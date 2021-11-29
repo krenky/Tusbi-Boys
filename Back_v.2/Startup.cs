@@ -59,7 +59,7 @@ namespace Back_v._2
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuer = true,
-                    ValidateAudience = true,
+                    ValidateAudience = false,
                     ValidIssuer = Configuration["JWT:ValidIssuer"],
                     ValidAudience = Configuration["JWT:ValidAudeince"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SecretKey"]))

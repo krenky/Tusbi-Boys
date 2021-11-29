@@ -24,8 +24,8 @@ namespace Back_v._2.Models
                 lastUpdated = DateTime.Now;
             }
         }
-        public DateTime Created { get; }
-        public DateTime LastUpdated { get; }
+        public DateTime Created { get; set; }
+        public DateTime LastUpdated { get; set; }
         public List<Product> Products
         {
             get
