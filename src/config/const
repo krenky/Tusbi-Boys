@@ -1,0 +1,2 @@
+DOMEN_SERVER=https://localhost:5001/api
+DOMEN_SITE=https://localhost:3000

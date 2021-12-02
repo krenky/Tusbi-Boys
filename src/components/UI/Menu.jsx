@@ -5,12 +5,15 @@ import AccountPage from "../../pages/AccountPage";
 import FavoritePage from "../../pages/Favorite";
 import BasketPage from "../../pages/BasketPage";
 import NewPost from "../../pages/NewPost"
+import Authorization from "../../pages/Authorization"
+import Registration from "../../pages/Registration";
 import HomeLogo from "../../img/HomeLogo.png"
 import AccountLogo from "../../img/AccountLogo.png"
 import FavoriteLogo from "../../img/FavoriteLogo.png";
 import BasketLogo from "../../img/BasketLogo.png"
 import WebLogo from "../../img/WebLogo.png"
 import NewPostLogo from "../../img/NewPostLogo.png"
+
 
 const Menu = () => {
     return (
@@ -22,10 +25,10 @@ const Menu = () => {
                 <div className="Menu__links">
                     <div className="MenuCell">
                         <div className="Circle">
-                            <Link to="/HomePage"><img className="HomeLogo" src={HomeLogo}/></Link>
+                            <Link to="/"><img className="HomeLogo" src={HomeLogo}/></Link>
                         </div>
                         <div className="Rect">
-                            <Link to="/HomePage" className="MenuLink">Главная</Link>
+                            <Link to="/" className="MenuLink">Главная</Link>
                         </div>
                     </div>
                     <div className="MenuCell">
@@ -57,17 +60,20 @@ const Menu = () => {
                             <Link to="/NewPost"><img className="NewPostLogo" src={NewPostLogo}/></Link>
                         </div>
                         <div className="Rect">
-                            <Link to="/NewPost" className="MenuLink">Разместить объявление</Link>
+                            <Link to="/NewPost" className="MenuLink">Новое объявление</Link>
                         </div>
                     </div>
                 </div>
             </div>
             <Routes>
-                <Route path="/HomePage" element={<HomePage/>}/>
+                {/* <Route path="/HomePage" element={<HomePage/>}/> */}
                 <Route path="/AccountPage" element={<AccountPage/>}/>
                 <Route path="/Favorite" element={<FavoritePage/>}/>
                 <Route path="/BasketPage" element={<BasketPage/>}/>
                 <Route path="/NewPost" element={<NewPost/>}/>
+                <Route path="/Authorization" element={<Authorization/>}/>
+                <Route path="/Registration" element={<Registration/>}/>
+                <Route exact path='/' element={<HomePage/>}/>
             </Routes>
         </BrowserRouter>
     );

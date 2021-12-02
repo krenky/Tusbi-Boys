@@ -10,22 +10,6 @@ import Menu from './components/UI/Menu';
 function App() {
     return (
         <Menu/>
-        // <BrowserRouter>
-        //     <div className="Menu">
-        //         <div className="Menu__links">
-        //             <a href="/HomePage">Главная</a>
-        //             <a href="/AccountPage">Моя страница</a>
-        //             <a href="/Favorite">Избранное</a>
-        //             <a href="/BasketPage">Корзина</a>
-        //         </div>
-        //     </div>
-        //     <Routes>
-        //         <Route path="/HomePage" element={<HomePage/>}/>
-        //         <Route path="/AccountPage" element={<AccountPage/>}/>
-        //         <Route path="/Favorite" element={<FavoritePage/>}/>
-        //         <Route path="/BasketPage" element={<BasketPage/>}/>
-        //     </Routes>
-        // </BrowserRouter>
   )
 }
 
