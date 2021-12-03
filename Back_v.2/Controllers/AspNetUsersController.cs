@@ -126,4 +126,5 @@ namespace Back_v._2.Controllers
             return HttpContext.User.Claims;
         }
     }
+
 }

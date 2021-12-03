@@ -1,10 +1,5 @@
-﻿using System;
-using Back_v._2.Models;
+﻿using Back_v._2.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Back_v._2.Models;
 
 #nullable disable
 
