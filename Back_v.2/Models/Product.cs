@@ -90,5 +90,6 @@ namespace Back_v._2.Models
             }
         }
         public DateTime LastUpdated { get; set; }
+        public ICollection<AspNetUser> AspNetUsersWishList { get; set; }
     }
 }

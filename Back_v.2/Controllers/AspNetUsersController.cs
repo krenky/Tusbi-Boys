@@ -22,7 +22,7 @@ namespace Back_v._2.Controllers
             _context = context;
         }
 
-        // GET: api/AspNetUsers
+        //// GET: api/AspNetUsers
         //[HttpGet]
         //public async Task<ActionResult<IEnumerable<AspNetUser>>> GetAspNetUsers()
         //{
@@ -114,13 +114,25 @@ namespace Back_v._2.Controllers
 
             return NoContent();
         }
+
+        private bool AspNetUserExists(string id)
+        {
+            return _context.AspNetUsers.Any(e => e.Id == id);
+        }
+        [Route("/getUser")]
         [HttpGet]
-        public async Task<IEnumerable<AspNetUser>> GetAspNetUser([FromQuery] AspNetUserParameters ownerParameters)
+        public async Task<IEnumerable<Claim>> UserName()
+        {
+            return HttpContext.User.Claims;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<AspNetUser>> GetAspNetUsers([FromQuery] PaginateParameters paginateParameters)
         {
             return _context.AspNetUsers.ToList()
                 .OrderBy(on => on.FirstName)
-                .Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
-                .Take(ownerParameters.PageSize)
+                .Skip((paginateParameters.PageNumber - 1) * paginateParameters.PageSize)
+                .Take(paginateParameters.PageSize)
                 .Select(e => new AspNetUser
                 {
                     UserName = e.UserName,
@@ -131,24 +143,21 @@ namespace Back_v._2.Controllers
                 })
                 .ToList();
         }
-        //[HttpGet]
-        //public async Task<IEnumerable<Product>> GetWishList(string id, [FromQuery] AspNetUserParameters ownerParameters)
-        //{
-        //    if (ownerParameters == null)
-        //    {
-        //        return _context.Products.Where(e => e.i)
-        //    }
-        //    return _context.AspNetUsers.Include(
-        //        e => e.WishList
-        //        .Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
-        //        .Take(ownerParameters.PageSize).ToList())
-        //        .Where(a => a.Id == id)
-        //        .FirstOrDefault();
-        //}
-
-        private bool AspNetUserExists(string id)
+        [HttpGet("/WishList")]
+        public async Task<ActionResult<List<Product>>> GetWishList([FromQuery] PaginateParameters paginateParameters, string id)
         {
-            return _context.AspNetUsers.Any(e => e.Id == id);
+            AspNetUser aspNetUser = _context.AspNetUsers.Where(e => e.Id == id).Include(a => a.WishList).FirstOrDefault();
+            if(aspNetUser == null)
+                return NotFound();
+            return aspNetUser.WishList
+                .Skip((paginateParameters.PageNumber - 1) * paginateParameters.PageSize)
+                .Take(paginateParameters.PageSize).ToList();
+                //.Where(e => e.Id == id)
+                //.Include(a => a.WishList
+                //.Skip((paginateParameters.PageNumber - 1) * paginateParameters.PageSize)
+                //.Take(paginateParameters.PageSize)
+                //.ToList())
+                //.FirstOrDefault();
         }
     }
 
