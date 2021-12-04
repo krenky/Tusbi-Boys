@@ -111,9 +111,19 @@ namespace Back_v._2.Controllers
             return NoContent();
         }
 
+        [HttpGet("/Products")]
+        public async Task<IEnumerable<Product>> GetProductsAsync([FromQuery] PaginateParameters paginateParameters)
+        {
+            return _context.Products.ToList()
+                .Skip((paginateParameters.PageNumber - 1) * paginateParameters.PageSize)
+                .Take(paginateParameters.PageSize)
+                .ToList();
+        }
+
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id);
         }
+
     }
 }
