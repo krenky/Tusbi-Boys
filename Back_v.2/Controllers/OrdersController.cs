@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Back_v._2.Context;
 using Back_v._2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Back_v._2.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class OrdersController : ControllerBase
@@ -22,6 +26,7 @@ namespace Back_v._2.Controllers
         }
 
         // GET: api/Orders
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
@@ -29,6 +34,7 @@ namespace Back_v._2.Controllers
         }
 
         // GET: api/Orders/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
@@ -44,6 +50,7 @@ namespace Back_v._2.Controllers
 
         // PUT: api/Orders/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
@@ -86,6 +93,7 @@ namespace Back_v._2.Controllers
 
         // POST: api/Orders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(int idProduct, string userId)
         {
@@ -99,6 +107,7 @@ namespace Back_v._2.Controllers
         }
 
         // DELETE: api/Orders/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
@@ -118,9 +127,11 @@ namespace Back_v._2.Controllers
         {
             return _context.Orders.Any(e => e.Id == id);
         }
+        [Authorize]
         [HttpPut]
         public async Task<ActionResult> AddProduct(int id, int idProduct)
         {
+            //var user = _context.AspNetUsers.FindAsync(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);???????
             var order = await _context.Orders.FindAsync(id);
             var product = await _context.Products.FindAsync(idProduct);
             if(order == null | product == null)

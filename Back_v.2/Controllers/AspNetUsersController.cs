@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Back_v._2.Context;
 using Back_v._2.Models;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Back_v._2.Controllers
 {
@@ -30,6 +31,7 @@ namespace Back_v._2.Controllers
         //}
 
         // GET: api/AspNetUsers/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<AspNetUser>> GetAspNetUser(string id)
         {
@@ -45,6 +47,7 @@ namespace Back_v._2.Controllers
 
         // PUT: api/AspNetUsers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAspNetUser(string id, AspNetUser aspNetUser)
         {
@@ -76,6 +79,7 @@ namespace Back_v._2.Controllers
 
         // POST: api/AspNetUsers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<ActionResult<AspNetUser>> PostAspNetUser(AspNetUser aspNetUser)
         {
@@ -100,6 +104,7 @@ namespace Back_v._2.Controllers
         }
 
         // DELETE: api/AspNetUsers/5
+        [Authorize(Roles ="Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAspNetUser(string id)
         {
@@ -119,13 +124,11 @@ namespace Back_v._2.Controllers
         {
             return _context.AspNetUsers.Any(e => e.Id == id);
         }
-        [Route("/getUser")]
-        [HttpGet]
-        public async Task<IEnumerable<Claim>> UserName()
-        {
-            return HttpContext.User.Claims;
-        }
-        //controller with paginate
+        /// <summary>
+        /// Метод получения списка пользователей
+        /// </summary>
+        /// <param name="paginateParameters">Параметры пагинации</param>
+        /// <returns>IEnumerable<AspNetUser></returns>
         [HttpGet]
         public async Task<IEnumerable<AspNetUser>> GetAspNetUsers([FromQuery] PaginateParameters paginateParameters)
         {
@@ -143,11 +146,17 @@ namespace Back_v._2.Controllers
                 })
                 .ToList();
         }
-        //controller with paginate
+        /// <summary>
+        /// Метод получения списка из WishList
+        /// </summary>
+        /// <param name="paginateParameters">Параметры пагинации</param>
+        /// <param name="id">Индекс пользователя</param>
+        /// <returns><List<Product></returns>
+        [Authorize]
         [HttpGet("/WishList")]
-        public async Task<ActionResult<List<Product>>> GetWishList([FromQuery] PaginateParameters paginateParameters, string id)
+        public async Task<ActionResult<List<Product>>> GetWishList([FromQuery] PaginateParameters paginateParameters)
         {
-            AspNetUser aspNetUser = _context.AspNetUsers.Where(e => e.Id == id).Include(a => a.WishList).FirstOrDefault();
+            AspNetUser aspNetUser = _context.AspNetUsers.Where(e => e.Id == HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value).Include(a => a.WishList).FirstOrDefault();
             if(aspNetUser == null)
                 return NotFound();
             return aspNetUser.WishList
@@ -159,6 +168,25 @@ namespace Back_v._2.Controllers
                 //.Take(paginateParameters.PageSize)
                 //.ToList())
                 //.FirstOrDefault();
+        }
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> AddInWishList(int productId)
+        {
+            var aspNetUser = await _context.AspNetUsers.FindAsync(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);//получение id пользователя
+            var product = await _context.Products.FindAsync(productId);
+            if (aspNetUser == null)
+                return NotFound();
+            aspNetUser.WishList.Add(product);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return NotFound();
+            }
+            return Ok();
         }
     }
 

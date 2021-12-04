@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Back_v._2</RootNamespace>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

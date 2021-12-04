@@ -1,7 +1,6 @@
 ﻿using Back_v._2.IdentityAuth;
 using Back_v._2.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -9,8 +8,10 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Back_v._2.Controllers
@@ -29,7 +30,11 @@ namespace Back_v._2.Controllers
             _roleManager = roleManager;
             _configuration = configuration;
         }
-
+        /// <summary>
+        /// Метод регистрации пользователя
+        /// </summary>
+        /// <param name="model">Данные нового пользователя</param>
+        /// <returns>Успешность регистрации(IActionResult)</returns>
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -49,12 +54,17 @@ namespace Back_v._2.Controllers
                 return StatusCode(500, new Response { Status = "Error", Message = "User creation failes! Please check user details & try again." });
             return Ok(new Response { Status = "Success", Message = "User created successfully" });
         }
+        /// <summary>
+        /// Метод регистрации администратора
+        /// </summary>
+        /// <param name="model">Данные нового администратора</param>
+        /// <returns>Успешность регистрации(ActionResult)</returns>
         [HttpPost]
         [Route("register-admin")]
         public async Task<ActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
-            if (userExists == null)
+            if (userExists != null)
                 return StatusCode(500, new Response { Status = "Error", Message = "User already exists!" });
             ApplicationUser user = new()
             {
@@ -75,7 +85,11 @@ namespace Back_v._2.Controllers
 
             return Ok(new Response { Status = "Success", Message = "User created successfully" });
         }
-
+        /// <summary>
+        /// Метод авторизации
+        /// </summary>
+        /// <param name="model">Данные для для авторизации</param>
+        /// <returns>Токен доступа</returns>
         [HttpPost]
         [Route("login")]
         public async Task<ActionResult> Login([FromBody] LoginModel model)
@@ -87,6 +101,7 @@ namespace Back_v._2.Controllers
 
                 var authClaims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.NameIdentifier, user.Id),
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
@@ -109,11 +124,15 @@ namespace Back_v._2.Controllers
             }
             return Unauthorized();
         }
+        /// <summary>
+        /// Метод проверки авторизации
+        /// </summary>
+        /// <returns></returns>
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<string>> CheckLogin()
+        public async Task<string> CheckLogin()
         {
-            return "success";
+            return HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
         }
     }
 }

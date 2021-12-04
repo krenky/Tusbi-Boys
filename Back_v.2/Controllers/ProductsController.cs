@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Back_v._2.Context;
 using Back_v._2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Back_v._2.Controllers
 {
@@ -22,6 +23,7 @@ namespace Back_v._2.Controllers
         }
 
         // GET: api/Products
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -44,6 +46,7 @@ namespace Back_v._2.Controllers
 
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -85,6 +88,7 @@ namespace Back_v._2.Controllers
         //}
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(string name, string description, string title, decimal price, List<string> photos, string userId)
         {
@@ -96,6 +100,7 @@ namespace Back_v._2.Controllers
         }
 
         // DELETE: api/Products/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
