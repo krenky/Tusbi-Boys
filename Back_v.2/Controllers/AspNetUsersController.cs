@@ -79,29 +79,29 @@ namespace Back_v._2.Controllers
 
         // POST: api/AspNetUsers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize(Roles ="Admin")]
-        [HttpPost]
-        public async Task<ActionResult<AspNetUser>> PostAspNetUser(AspNetUser aspNetUser)
-        {
-            _context.AspNetUsers.Add(aspNetUser);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (AspNetUserExists(aspNetUser.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //[Authorize(Roles ="Admin")]
+        //[HttpPost]
+        //public async Task<ActionResult<AspNetUser>> PostAspNetUser(AspNetUser aspNetUser)
+        //{
+        //    _context.AspNetUsers.Add(aspNetUser);
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (AspNetUserExists(aspNetUser.Id))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return CreatedAtAction("GetAspNetUser", new { id = aspNetUser.Id }, aspNetUser);
-        }
+        //    return CreatedAtAction("GetAspNetUser", new { id = aspNetUser.Id }, aspNetUser);
+        //}
 
         // DELETE: api/AspNetUsers/5
         [Authorize(Roles ="Admin")]
