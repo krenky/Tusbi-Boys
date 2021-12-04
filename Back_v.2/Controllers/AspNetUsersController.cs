@@ -125,7 +125,7 @@ namespace Back_v._2.Controllers
         {
             return HttpContext.User.Claims;
         }
-
+        //controller with paginate
         [HttpGet]
         public async Task<IEnumerable<AspNetUser>> GetAspNetUsers([FromQuery] PaginateParameters paginateParameters)
         {
@@ -143,6 +143,7 @@ namespace Back_v._2.Controllers
                 })
                 .ToList();
         }
+        //controller with paginate
         [HttpGet("/WishList")]
         public async Task<ActionResult<List<Product>>> GetWishList([FromQuery] PaginateParameters paginateParameters, string id)
         {

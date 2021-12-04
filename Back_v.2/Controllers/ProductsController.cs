@@ -110,7 +110,7 @@ namespace Back_v._2.Controllers
 
             return NoContent();
         }
-
+        //controller with paginate
         [HttpGet("/Products")]
         public async Task<IEnumerable<Product>> GetProductsAsync([FromQuery] PaginateParameters paginateParameters)
         {
