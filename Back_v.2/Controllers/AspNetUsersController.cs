@@ -23,11 +23,11 @@ namespace Back_v._2.Controllers
         }
 
         // GET: api/AspNetUsers
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<AspNetUser>>> GetAspNetUsers()
-        {
-            return await _context.AspNetUsers.ToListAsync();
-        }
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<AspNetUser>>> GetAspNetUsers()
+        //{
+        //    return await _context.AspNetUsers.ToListAsync();
+        //}
 
         // GET: api/AspNetUsers/5
         [HttpGet("{id}")]
@@ -114,16 +114,41 @@ namespace Back_v._2.Controllers
 
             return NoContent();
         }
+        [HttpGet]
+        public async Task<IEnumerable<AspNetUser>> GetAspNetUser([FromQuery] AspNetUserParameters ownerParameters)
+        {
+            return _context.AspNetUsers.ToList()
+                .OrderBy(on => on.FirstName)
+                .Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
+                .Take(ownerParameters.PageSize)
+                .Select(e => new AspNetUser
+                {
+                    UserName = e.UserName,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+                    Photo = e.Photo
+
+                })
+                .ToList();
+        }
+        //[HttpGet]
+        //public async Task<IEnumerable<Product>> GetWishList(string id, [FromQuery] AspNetUserParameters ownerParameters)
+        //{
+        //    if (ownerParameters == null)
+        //    {
+        //        return _context.Products.Where(e => e.i)
+        //    }
+        //    return _context.AspNetUsers.Include(
+        //        e => e.WishList
+        //        .Skip((ownerParameters.PageNumber - 1) * ownerParameters.PageSize)
+        //        .Take(ownerParameters.PageSize).ToList())
+        //        .Where(a => a.Id == id)
+        //        .FirstOrDefault();
+        //}
 
         private bool AspNetUserExists(string id)
         {
             return _context.AspNetUsers.Any(e => e.Id == id);
-        }
-        [Route("/getUser")]
-        [HttpGet]
-        public async Task<IEnumerable<Claim>> UserName()
-        {
-            return HttpContext.User.Claims;
         }
     }
 

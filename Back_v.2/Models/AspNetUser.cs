@@ -34,6 +34,7 @@ namespace Back_v._2.Models
         public int AccessFailedCount { get; set; }
         public string Photo { get; set; }
         
+        public ICollection<Product> WishList { get; set; }
         public ICollection<Product> Products { get; set; }
         public ICollection<Order> Orders { get; set; }
         public virtual ICollection<AspNetUserClaim> AspNetUserClaims { get; set; }
