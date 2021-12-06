@@ -1,9 +1,5 @@
 ![](https://raw.githubusercontent.com/krenky/Tusbi-Boys/83768adbfca0a0b4748f09015ce4825d24eb7b5b/src/img/WebLogo.png)
 
-# Population Mobility Monitor
-
-Placeholder
-
 ## Requirements
 .Net 5 or higher
 
