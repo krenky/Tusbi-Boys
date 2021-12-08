@@ -1,10 +1,12 @@
 import Button from "@restart/ui/esm/Button";
 import React from "react";
+import AddPost from "../components/UI/AddPost";
 
 const NewPost = () => {
     return (
         <div className="Background">
             <div className="AddPost">
+                <AddPost/>
                 <div className="AddPostTitle">
                     <div className = "AddImage">
                         <button className="AddPhoto">
@@ -13,11 +15,6 @@ const NewPost = () => {
                     </div>
                     <div className = "AddInfo">
                         <input className="AddName"></input>
-                        <select className="Category">
-                            <option value="A">A</option>
-                             <option value="B">B</option>
-                            <option value="-">Other</option>
-                        </select>
                         <input className="AddPrice"></input>
                         {/* Яндекс карты */}
                     </div>
