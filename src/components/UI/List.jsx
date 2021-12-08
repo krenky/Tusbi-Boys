@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
- export default class App extends React.Component {
+ export default class HomePost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,32 +17,37 @@ import axios from "axios";
 
   render() {
     return (
-      <div className="App">
-        <CommentsView postId={this.state.PageNumber} />
-        <PageSelector
+      <div className="SeePost">
+        <PageSelectorPrev
           PageNumber={this.state.PageNumber}
           PageSize={this.state.PageSize}
           handleClick={this.handleClick}
         />
+        <PageSelectorNext
+          PageNumber={this.state.PageNumber}
+          PageSize={this.state.PageSize}
+          handleClick={this.handleClick}
+        />
+        <CommentsView postId={this.state.PageNumber} />
       </div>
     );
   }
 }
 
-function PageSelector(props) {
-  
-    const pages = [];
-  
-    for (let i = 1; i <= props.PageNumber+1; i++) {
-      pages.push(
-        <button key={i} onClick={() => props.handleClick(i)} className="pos_listing_next">
-          {i}
-        </button>
-      );
-    }
-  
-    return <div className="button_right">{pages}</div>;
+function PageSelectorPrev(props) {
+
+  let postprevId = props.PageNumber -1
+  let postNextId = props.PageNumber + 1
+  return <div className="pos_listing_prev"><button  className="button_left" onClick={() => props.handleClick(postprevId)}></button></div>
+
   }
+
+  function PageSelectorNext(props) {
+
+    let postprevId = props.PageNumber -1
+    let postNextId = props.PageNumber + 1
+    return  <div className="pos_listing_next"><button className="button_right" onClick={() => props.handleClick(postNextId)}></button></div>
+    }
 
 class CommentsView extends React.Component {
   constructor(props) {
@@ -73,6 +78,7 @@ class CommentsView extends React.Component {
     ));
 
     return person.length > 0 ? <div>{person}</div> : <loading>loading</loading>,
+    <div className="HomePost">
         <div className="DashBoard">
           <div className="DashTitle">
               <div className="DashName">
@@ -109,5 +115,6 @@ class CommentsView extends React.Component {
               </div>
           </div>
         </div>
+    </div>
   }
 }
