@@ -104,6 +104,8 @@ namespace Back_v._2
 
             app.UseRouting();
 
+            app.UseCors(builder => builder.AllowAnyOrigin());
+
             app.UseAuthentication();
             app.UseAuthorization();
 
